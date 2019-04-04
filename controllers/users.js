@@ -9,7 +9,7 @@ async function getUserProfile(req, res){
             password: theUser.password
     },
         partials:{
-            settings: './partial-settings'
+            bootstrap: './partial-settings'
         }});
 }
 

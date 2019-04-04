@@ -9,6 +9,8 @@ app.set('views', './views');
 app.set('view engine', 'html');
 app.use(express.urlencoded({extended:true}));
 // ROUTES
+const loginRouter = require('./routes/login');
+app.use('/', loginRouter);
 const userRouter = require('./routes/users');
 app.use('/user', userRouter);
 
