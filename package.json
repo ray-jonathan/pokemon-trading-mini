@@ -1,0 +1,24 @@
+{
+  "name": "pokemon",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "nodemon": "^1.18.10"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "dev" : "nodemon testing/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ray-jonathan/pokemon-trading-mini.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ray-jonathan/pokemon-trading-mini/issues"
+  },
+  "homepage": "https://github.com/ray-jonathan/pokemon-trading-mini#readme"
+}
