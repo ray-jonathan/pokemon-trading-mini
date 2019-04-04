@@ -19,7 +19,8 @@ async function getUserProfile(req, res){
             Card: allTheirCards
     },
         partials:{
-            bootstrap: './partial-settings'
+            bootstrap: './partial-settings',
+            cardPartial: 'partial-cards'
         }});
 }
 
