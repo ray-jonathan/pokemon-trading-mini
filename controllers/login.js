@@ -8,8 +8,8 @@ async function logMeIn(req, res){
     // const theUser = await User.checkPassword("AshTheVeryBest");
     res.render('login', {
         locals:{
-            username: theUser.username,
-            password: theUser.password
+            username: '',
+            password: ''
     },
         partials:{
             bootstrap: './partial-settings'
@@ -20,16 +20,27 @@ async function getUserProfile(req, res){
     const theUser = await User.getByUsername(req.body.username);
     console.log(req.body.username);
     console.log(req.body.password);
-    if (theUser.checkPassword(req.body.password)) {
-        console.log(req.session);
-        // req.session.user = theUser.id;
-        // req.session.save(() => {
-            res.redirect('/user');
-        // })
+    if(theUser) {
+        if (theUser.checkPassword(req.body.password)) {
+            console.log(req.session);
+            // req.session.user = theUser.id;
+            // req.session.save(() => {
+                res.redirect('/user');
+            // })
+        } else {
+            res.render('login', {
+                locals:{
+                    username: req.body.username,
+                    password: ''
+            },
+                partials:{
+                    bootstrap: './partial-settings'
+                }});
+        }
     } else {
         res.render('login', {
             locals:{
-                username: `${req.body.username}`,
+                username: '',
                 password: ''
         },
             partials:{

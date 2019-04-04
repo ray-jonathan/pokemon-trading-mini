@@ -50,6 +50,11 @@ class User {
                     userData.password);
                 return aUser;
             })
+            .catch(
+                () => {
+                    return null;
+                }
+            )
     };
 
     setPassword(newPassword) {
