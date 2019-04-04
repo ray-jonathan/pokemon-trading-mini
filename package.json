@@ -13,7 +13,7 @@
   "scripts": {
     "dev": "nodemon index.js",
     "db:create": "createdb pokemon-app",
-    "db:init": "psql -f schema.sql pokemon-app && psql -f seed.sql pokemon-app",
+    "db:init": "psql -f schema.sql pokemon-app && psql -f seed.sql pokemon-app && node seed.js",
     "db:destroy": "dropdb pokemon-app",
     "db:reset": "npm run db:destroy; npm run db:create && npm run db:init",
     "test": "echo \"Error: no test specified\" && exit 1"

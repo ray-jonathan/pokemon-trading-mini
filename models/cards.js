@@ -9,11 +9,11 @@ class Card {
     };
 
     static add(cardData) {
-        return db.one(`insert into cards
-            (name, picture, id)
+        return db.any(`insert into cards
+            (name, picture, rarity)
         values
             ($1, $2, $3)
-            `, [name, picture, id])
+            `, [cardData.name, cardData.picture, cardData.rarity])
     };
 
     static getByName(name) {

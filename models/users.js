@@ -11,7 +11,7 @@ class User {
             (username, password)
         values
             ($1, $2)
-            `, [username, password])
+            `, [userData.username, userData.password])
     };
 
 
