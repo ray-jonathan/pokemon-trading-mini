@@ -14,6 +14,17 @@ app.use('/', loginRouter);
 const userRouter = require('./routes/users');
 app.use('/user', userRouter);
 
+const User = require('./models/users')
+
+async function demo() {
+    const user = await User.getByUsername('AshTheVeryBest');
+    user.setPassword("PikachuRox");
+    await user.save();
+    // console.log('you did the thing')
+}
+demo();
+
+
 
 // SERVER
 app.listen(PORT, () => {

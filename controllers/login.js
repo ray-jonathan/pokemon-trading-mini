@@ -17,15 +17,25 @@ async function logMeIn(req, res){
 }
 
 async function getUserProfile(req, res){
-    const theUser = await User.getByUsername("AshTheVeryBest");
-    res.render('user', {
-        locals:{
-            username: theUser.username,
-            password: theUser.password
-    },
-        partials:{
-            bootstrap: './partial-settings'
-        }});
+    const theUser = await User.getByUsername(req.body.username);
+    console.log(req.body.username);
+    console.log(req.body.password);
+    if (theUser.checkPassword(req.body.password)) {
+        console.log(req.session);
+        // req.session.user = theUser.id;
+        // req.session.save(() => {
+            res.redirect('/user');
+        // })
+    } else {
+        res.render('login', {
+            locals:{
+                username: `${req.body.username}`,
+                password: ''
+        },
+            partials:{
+                bootstrap: './partial-settings'
+            }});
+    }
 }
 
 module.exports = {

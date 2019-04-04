@@ -1,7 +1,9 @@
 const db = require('./conn');
+const bcrypt = require('bcryptjs');
 
 class User {
     constructor(id, username, password) {
+        this.id = id;
         this.username = username;
         this.password = password
     };
@@ -50,6 +52,17 @@ class User {
             })
     };
 
+    setPassword(newPassword) {
+        const salt = bcrypt.genSaltSync(10);
+        const hash = bcrypt.hashSync(newPassword, salt);
+        this.password = hash;
+    };
+
+    checkPassword(aPassword) {
+        return bcrypt.compareSync(aPassword, this.password);
+    };
+
 };
+
 
 module.exports = User
