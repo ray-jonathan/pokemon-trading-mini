@@ -21,5 +21,5 @@ create table trades (
     id serial primary key,
     old_user_id integer references users(id),
     new_user_id integer references users(id),
-    card_id integer references cards(id),
+    card_id integer references cards(id)
 );
