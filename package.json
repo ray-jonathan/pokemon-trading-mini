@@ -12,7 +12,7 @@
     "nodemon": "^1.18.10"
   },
   "scripts": {
-    "dev": "nodemon testing/index.js",
+    "dev": "nodemon index.js",
     "db:create": "createdb pokemon-app",
     "db:init": "psql -f schema.sql pokemon-app && psql -f seed.sql pokemon-app",
     "db:destroy": "dropdb pokemon-app",
