@@ -1,9 +1,12 @@
 // functions for res.render-ing user info from routes
-function getUserProfile(req, res){
+const  User = require('../models/users');
+
+async function getUserProfile(req, res){
+    const theUser = await User.getByUsername("AshTheVeryBest");
     res.render('user', {
         locals:{
-            username:"dummy Name",
-            password:"lol, not really"
+            username: theUser.username,
+            password: theUser.password
     },
         partials:{
             settings: './partial-settings'
