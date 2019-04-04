@@ -4,9 +4,13 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "express": "^4.16.4",
+    "express-es6-template-engine": "^2.1.7",
+    "pg-promise": "^8.6.4"
+  },
+  "devDependencies": {
     "nodemon": "^1.18.10"
   },
-  "devDependencies": {},
   "scripts": {
     "dev": "nodemon testing/index.js",
     "db:create": "createdb pokemon-app",
