@@ -10,5 +10,19 @@
 <body>
     <h3>Welcome, ${username}!</h3>
     <p>Your password is: ${password}</p>
+
+    <div class="card-deck ">
+        ${Card.map((aCard) =>  `
+            <div class="card text-center" style="min-width: 10rem;">
+                <img class="card-img-top" src="${aCard.picture}" alt="Card image cap"/>
+                <div class="card-body">
+                    <h5 class="card-title">${aCard.name}</h5>
+                    <p class="card-text">Rarity: ${aCard.rarity}</p>
+                    <a href="/trade/${aCard.id}" class="btn btn-primary">Trade!</a>
+                </div>
+            </div>
+        `).join(' ')}
+    </div>
+
 </body>
 </html>

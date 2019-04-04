@@ -16,6 +16,9 @@ class OwnedBy {
         `);
     };
 
+    static getUserCards(id){
+        return db.any(`select * from ownedby where user_id=$1`, [id]);
+    }
 
 };
 
