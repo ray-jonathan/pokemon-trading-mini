@@ -28,6 +28,34 @@ class Card {
             })
     };
 
+    static getById(id) {
+        return db.one(`select * from cards where id=$1`, [id])
+            .then(cardData => {
+                const aCard = new Card(
+                    cardData.id,
+                    cardData.name,
+                    cardData.picture,
+                    cardData.rarity);
+                return aCard;
+            })
+    };
+
+    static getAllCards(){
+        return db.any(`select * from cards`)
+        .then(allCards => {
+            let arrayOfCards =[];
+            allCards.forEach(cardData => {
+                const aCard = new Card(
+                    cardData.id,
+                    cardData.name,
+                    cardData.picture,
+                    cardData.rarity);
+                arrayOfCards.push(aCard);
+            });
+            return arrayOfCards;
+        });
+    }
+
 
 };
 

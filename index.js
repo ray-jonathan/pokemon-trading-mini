@@ -13,6 +13,11 @@ const loginRouter = require('./routes/login');
 app.use('/', loginRouter);
 const userRouter = require('./routes/users');
 app.use('/user', userRouter);
+const cardRouter = require('./routes/cards');
+app.use('/cards', cardRouter);
+const tradeRouter = require('./routes/trades');
+app.use('/trade', tradeRouter);
+
 
 
 // SERVER
