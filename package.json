@@ -1,7 +1,6 @@
 {
   "name": "pokemon",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "dependencies": {
     "express": "^4.16.4",
@@ -28,5 +27,6 @@
   "bugs": {
     "url": "https://github.com/ray-jonathan/pokemon-trading-mini/issues"
   },
-  "homepage": "https://github.com/ray-jonathan/pokemon-trading-mini#readme"
+  "homepage": "https://github.com/ray-jonathan/pokemon-trading-mini#readme",
+  "description": ""
 }

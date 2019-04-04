@@ -28,13 +28,24 @@ class User {
         `)
     };
 
-    static getByEmail(email) {
-        return db.one(`select * from users where email=$1`, [email])
+    // static getByEmail(email) {
+    //     return db.one(`select * from users where email=$1`, [email])
+    //         .then(userData => {
+    //             const aUser = new User(
+    //                 userData.id,
+    //                 userData.username,
+    //                 uerData.password);
+    //             return aUser;
+    //         })
+    // };
+
+    static getByUsername(username) {
+        return db.one(`select * from users where username=$1`, [username])
             .then(userData => {
                 const aUser = new User(
                     userData.id,
                     userData.username,
-                    uerData.password);
+                    userData.password);
                 return aUser;
             })
     };
