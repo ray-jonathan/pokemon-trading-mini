@@ -6,7 +6,8 @@ allCards.cards.forEach ((oneCard) => {
     Card.add(oneCard);
 })
 
-const User = require('./models/users')
+const User = require('./models/users');
+const OwnedBy = require('./models/ownedby');
 
 async function encryptSeed1() {
     const user = await User.getByUsername('AshTheVeryBest');
@@ -39,3 +40,9 @@ async function encryptSeed4() {
     // console.log('you did the thing')
 }
 encryptSeed4();
+
+
+// async function addCard() {
+//     await OwnedBy.add(1, 1);
+// }
+// addCard();

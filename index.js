@@ -26,7 +26,14 @@ const tradeRouter = require('./routes/trades');
 app.use('/trade', tradeRouter);
 
 
-
+function add10Cards() {
+    const randomCards = []
+    for(let i=0; i< 10; i++) {
+        randomCards.push(Math.floor(Math.random() * Math.floor(100)))
+    };
+    return randomCards
+};
+console.log(add10Cards());
 
 
 // SERVER
