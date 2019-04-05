@@ -33,7 +33,7 @@ class OwnedBy {
     }
 
     static addCardToUser(card_id, user_id){
-        return db.one(`insert into ownedby (card_id, user_id) values ($1, $2)`, [card_id, user_id]);
+        return db.one(`insert into ownedby (card_id, user_id) values ($1, $2) returning id`, [card_id, user_id]);
     }
 }
 
