@@ -4,7 +4,7 @@ const  Card = require('../models/cards');
 const  OwnedBy = require('../models/ownedby');
 
 async function getUserProfile(req, res){
-    const theUser = await User.getByUsername("AshTheVeryBest");
+    const theUser = await User.getById(req.session.user);
     const userOwnedCards = await OwnedBy.getUserCards(theUser.id);
     const allTheirCards = [];
     await Promise.all(userOwnedCards.map(async (cardInHand) => {

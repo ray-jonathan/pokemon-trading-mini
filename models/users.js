@@ -57,6 +57,22 @@ class User {
             )
     };
 
+    static getById(id) {
+        return db.one(`select * from users where id=$1`, [id])
+            .then(userData => {
+                const aUser = new User(
+                    userData.id,
+                    userData.username,
+                    userData.password);
+                return aUser;
+            })
+            .catch(
+                () => {
+                    return null;
+                }
+            )
+    };
+
     setPassword(newPassword) {
         const salt = bcrypt.genSaltSync(10);
         const hash = bcrypt.hashSync(newPassword, salt);

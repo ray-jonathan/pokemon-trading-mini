@@ -2,7 +2,14 @@
 const express = require('express');
 const PORT = 3000;
 const app = express();
+// SESSION SETUP
+const session = require('express-session');
+const FileStore = require('session-file-store')(session);
 // VIEW ENGINE SET UP
+app.use(session({
+    store: new FileStore(),
+    secret: 'fjdlsfafklahfalkfhka'
+}));
 const es6Renderer = require('express-es6-template-engine');
 app.engine('html', es6Renderer);
 app.set('views', './views');

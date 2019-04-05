@@ -23,10 +23,10 @@ async function getUserProfile(req, res){
     if(theUser) {
         if (theUser.checkPassword(req.body.password)) {
             console.log(req.session);
-            // req.session.user = theUser.id;
-            // req.session.save(() => {
+            req.session.user = theUser.id;
+            req.session.save(() => {
                 res.redirect('/user');
-            // })
+            })
         } else {
             res.render('login', {
                 locals:{
