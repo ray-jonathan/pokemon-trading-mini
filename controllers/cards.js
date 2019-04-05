@@ -12,7 +12,8 @@ async function getCards(req, res){
             Card: allTheCards
     },
         partials:{
-            bootstrap: './partial-settings'
+            bootstrap: './partial-settings',
+            cardPartial: 'partial-cards'
         }});
 }
 
