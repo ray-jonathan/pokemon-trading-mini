@@ -22,8 +22,9 @@ async function getUserProfile(req, res){
     // console.log(req.body.password);
     if(theUser) {
         if (theUser.checkPassword(req.body.password)) {
-            // console.log(req.session);
             req.session.user = theUser.id;
+            req.session.username = theUser.username;
+            console.log(req.session);
             req.session.save(() => {
                 res.redirect('/user');
             })
