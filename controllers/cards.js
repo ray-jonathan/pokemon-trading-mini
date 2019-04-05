@@ -6,13 +6,14 @@ async function getCards(req, res){
     // console.log(allTheCards);
     res.render('cards', {
         locals:{
-            username: "ash",
-            password: "pikachu",
+            username: req.session.username,
+            password: "",
             Card: allTheCards
     },
         partials:{
             bootstrap: './partial-settings',
-            cardPartial: 'partial-cards'
+            cardPartial: 'partial-cards',
+            navPartial: './partial-nav'
         }});
 }
 

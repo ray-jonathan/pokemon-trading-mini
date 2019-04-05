@@ -10,17 +10,16 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></head>
 <body>
-    <h3>Welcome, ${username}!</h3>
-    <p hidden>Your password is: ${password}</p>
-    <a href="/cards">Checkout the CardStore!</a>
+    ${navPartial}
+    <!-- <h3>Welcome, ${username}!</h3> -->
     <br>
     <br>
     <br>
     
     <!-- ${cardPartial} -->
 
-
     <div class="card-deck" style="justify-content: center">
+
             ${Card.map((aCard) =>  `
                 <div style="margin: 1rem;">
                     <div class="card text-center" style="min-width: 15rem; max-width: 15vw;">
@@ -42,7 +41,7 @@
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                                <h5 class="modal-title" id="exampleModalLongTitle">${aCard.name}</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                                 </button>
@@ -60,7 +59,7 @@
                 </div>
             `).join(' ')}
         </div>
-
+    </div>
 
 </body>
 </html>

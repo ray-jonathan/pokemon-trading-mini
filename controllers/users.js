@@ -16,13 +16,14 @@ async function getUserProfile(req, res){
     console.log(allTheirCards);
     res.render('user', {
         locals:{
-            username: theUser.username,
+            username: req.session.username,
             password: theUser.password,
             Card: allTheirCards
     },
         partials:{
             bootstrap: './partial-settings',
-            cardPartial: 'partial-cards'
+            cardPartial: 'partial-cards',
+            navPartial: './partial-nav'
         }});
 }
 
