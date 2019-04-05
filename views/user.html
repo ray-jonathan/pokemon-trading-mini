@@ -20,20 +20,22 @@
     <!-- ${cardPartial} -->
 
 
-    <div class="card-deck ">
+    <div class="card-deck" style="justify-content: center">
             ${Card.map((aCard) =>  `
-                <div class="card text-center" style="min-width: 10rem; max-width: 15vw;">
-                    <img class="card-img-top" src="${aCard.picture}" alt="Card image cap"/>
-                    <div class="card-body">
-                        <h5 class="card-title">${aCard.name}</h5>
-                        <p class="card-text">Rarity: ${aCard.rarity}</p>
-                        <div> 
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-${aCard.ownedById}">
-                                Trade!
-                            </button>
+                <div style="margin: 1rem;">
+                    <div class="card text-center" style="min-width: 15rem; max-width: 15vw;">
+                        <img class="card-img-top" src="${aCard.picture}" alt="Card image cap"/>
+                        <div>
+                            <h5 class="card-title">${aCard.name}</h5>
+                            <p class="card-text">Rarity: ${aCard.rarity}</p>
+                            <div> 
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-${aCard.ownedById}">
+                                    Trade!
+                                </button>
+                            </div>
+                            <!-- <a href="/trade/${aCard.id}/cards" class="btn btn-primary">Trade!</a> -->
+                            <!-- <a data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-primary">Trade!</a> -->
                         </div>
-                        <!-- <a href="/trade/${aCard.id}/cards" class="btn btn-primary">Trade!</a> -->
-                        <!-- <a data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-primary">Trade!</a> -->
                     </div>
                 </div>
                 <div class="modal fade" id="modal-${aCard.ownedById}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
