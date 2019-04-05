@@ -14,23 +14,17 @@
 
 
 <body>
-    <a href="/user">Back to your page!</a>
-    <br> 
-    <br>
 
-    <!-- Button trigger modal -->
-    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-        Launch demo modal
-    </button> -->
+${navPartial}
+
     
-    <!-- Modal -->
 
 
 
     <!--${cardPartial} -->
     <div class="card-deck ">
         ${Card.map((aCard) =>  `
-            <div class="card text-center" style="min-width: 10rem; max-width: 15vw;">
+            <div class="card text-center" style="min-width: 10rem; max-width: 10rem;">
                     <img class="card-img-top" src="${aCard.picture}" alt="Card image cap"/>
                 <div class="card-body">
                     <h5 class="card-title">${aCard.name}</h5>
