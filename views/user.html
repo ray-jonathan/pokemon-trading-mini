@@ -9,8 +9,12 @@
 </head>
 <body>
     <h3>Welcome, ${username}!</h3>
-    <p>Your password is: ${password}</p>
-
+    <p hidden>Your password is: ${password}</p>
+    <a href="/cards">Checkout the CardStore!</a>
+    <br>
+    <br>
+    <br>
+    
     <!-- ${cardPartial} -->
     <div class="card-deck ">
         ${Card.map((aCard) =>  `
