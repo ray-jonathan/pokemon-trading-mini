@@ -2,7 +2,6 @@
 const  Card = require('../models/cards');
 
 async function getCards(req, res){
-
     const allTheCards = await Card.getAllCards();
     // console.log(allTheCards);
     res.render('cards', {

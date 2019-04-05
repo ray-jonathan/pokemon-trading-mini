@@ -6,12 +6,14 @@ const  OwnedBy = require('../models/ownedby');
 async function getUserProfile(req, res){
     const theUser = await User.getByUsername("AshTheVeryBest");
     const userOwnedCards = await OwnedBy.getUserCards(theUser.id);
+    // console.log(userOwnedCards);
     const allTheirCards = [];
     await Promise.all(userOwnedCards.map(async (cardInHand) => {
-        const cardInfo = await Card.getById(cardInHand.card_id);
+        const cardInfo = await Card.getById(cardInHand.card_id, cardInHand.id);
+        // console.log(cardInfo);
         allTheirCards.push(cardInfo);
     }));    
-
+    console.log(allTheirCards);
     res.render('user', {
         locals:{
             username: theUser.username,
