@@ -18,15 +18,15 @@ async function logMeIn(req, res){
 
 async function getUserProfile(req, res){
     const theUser = await User.getByUsername(req.body.username);
-    console.log(req.body.username);
-    console.log(req.body.password);
+    // console.log(req.body.username);
+    // console.log(req.body.password);
     if(theUser) {
         if (theUser.checkPassword(req.body.password)) {
-            console.log(req.session);
-            // req.session.user = theUser.id;
-            // req.session.save(() => {
+            // console.log(req.session);
+            req.session.user = theUser.id;
+            req.session.save(() => {
                 res.redirect('/user');
-            // })
+            })
         } else {
             res.render('login', {
                 locals:{

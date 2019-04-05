@@ -7,6 +7,14 @@ class OwnedBy {
         this.cardId = card_id;
     }
 
+    static add(ownedData) {
+        return db.one(`insert into ownedBy
+            (user_id, card_id)
+        values
+            ($1, $2)
+            `, [ownedData.user_id, ownedData.card_id])
+    };
+
     save(id) {
         return db.result(`
         update ownedBy set

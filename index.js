@@ -2,7 +2,14 @@
 const express = require('express');
 const PORT = 3000;
 const app = express();
+// SESSION SETUP
+const session = require('express-session');
+const FileStore = require('session-file-store')(session);
 // VIEW ENGINE SET UP
+app.use(session({
+    store: new FileStore(),
+    secret: 'fjdlsfafklahfalkfhka'
+}));
 const es6Renderer = require('express-es6-template-engine');
 app.engine('html', es6Renderer);
 app.set('views', './views');
@@ -21,16 +28,14 @@ app.use('/trade', tradeRouter);
 // console.log(req);
 
 
-const User = require('./models/users')
-
-async function demo() {
-    const user = await User.getByUsername('AshTheVeryBest');
-    user.setPassword("PikachuRox");
-    await user.save();
-    // console.log('you did the thing')
-}
-demo();
-
+function add10Cards() {
+    const randomCards = []
+    for(let i=0; i< 10; i++) {
+        randomCards.push(Math.floor(Math.random() * Math.floor(100)))
+    };
+    return randomCards
+};
+console.log(add10Cards());
 
 
 // SERVER
