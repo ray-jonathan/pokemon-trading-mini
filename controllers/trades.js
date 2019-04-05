@@ -10,18 +10,13 @@ async function getTrade(req, res){
         .catch(err=> {
             console.log(err);
         })
-        .then(()=>{res.json({
-            message:`Card ID: ${pseudoID}`,
-            message2:`Referring Page: ${source}`
-        });});
-
+        .then(() => {res.redirect('/user');});
     }
     else if (source === "cards"){
-        await OwnedBy.addCardToUser(pseudoID, userID);
-        res.json({
-            message:`Card ID: ${pseudoID}`,
-            message2:`Referring Page: ${source}`
-        });
+        console.log(pseudoID);
+        console.log(req.params);
+        await OwnedBy.addCardToUser(pseudoID, userID)
+        .then(() => {res.redirect('/cards');});
     }
 }
 

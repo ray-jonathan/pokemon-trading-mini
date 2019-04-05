@@ -3,7 +3,7 @@ const  Card = require('../models/cards');
 
 async function getCards(req, res){
     const allTheCards = await Card.getAllCards();
-    console.log(allTheCards);
+    // console.log(allTheCards);
     res.render('cards', {
         locals:{
             username: "ash",
