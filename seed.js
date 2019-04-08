@@ -1,3 +1,4 @@
+require('dotenv').config();
 const allCards = require('./base.json');
 const Card = require('./models/cards');
 
