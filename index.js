@@ -1,14 +1,18 @@
+require('dotenv').config();
 // EXPRESS SET UP
 const express = require('express');
-const PORT = 3000;
+const port = process.env.PORT;
 const app = express();
 // SESSION SETUP
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
+// SAFETY SETUP
+const helmet = require('helmet');
+app.use(helmet());
 // VIEW ENGINE SET UP
 app.use(session({
     store: new FileStore(),
-    secret: 'fjdlsfafklahfalkfhka'
+    secret: process.env.SESSION_SECRET
 }));
 const es6Renderer = require('express-es6-template-engine');
 app.engine('html', es6Renderer);
@@ -35,10 +39,10 @@ function add10Cards() {
     };
     return randomCards
 };
-console.log(add10Cards());
+// console.log(add10Cards());
 
 
 // SERVER
-app.listen(PORT, () => {
-    console.log(`You're tuning in to DJ Brock on ${PORT}FM`);
+app.listen(port, () => {
+    console.log(`You're tuning in to DJ Brock on ${port}FM`);
 });

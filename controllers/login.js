@@ -2,6 +2,8 @@
 
 // functions for res.render-ing user info from routes
 const  User = require('../models/users');
+const escapeHtml = require('../utils');
+
 
 async function logMeIn(req, res){
     const theUser = await User.getByUsername("AshTheVeryBest");
@@ -21,7 +23,7 @@ async function getUserProfile(req, res){
     // console.log(req.body.username);
     // console.log(req.body.password);
     if(theUser) {
-        if (theUser.checkPassword(req.body.password)) {
+        if (theUser.checkPassword(escapeHtml(req.body.password))) {
             req.session.user = theUser.id;
             req.session.username = theUser.username;
             console.log(req.session);
@@ -31,7 +33,7 @@ async function getUserProfile(req, res){
         } else {
             res.render('login', {
                 locals:{
-                    username: req.body.username,
+                    username: escapeHtml(req.body.username),
                     password: ''
             },
                 partials:{
